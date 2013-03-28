@@ -14,6 +14,9 @@ class PagespeedapiResource extends Resource {
    *
    * [rule] - A Page Speed rule to run; if none are given, all rules are run
    *
+   * [screenshot] - Indicates if binary data containing a screenshot should be included
+   *   Default: false
+   *
    * [strategy] - The analysis strategy to use
    *   Allowed values:
    *     desktop - Fetch and analyze the URL for desktop browsers
@@ -21,7 +24,7 @@ class PagespeedapiResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Result> runpagespeed(String url, {String locale, String rule, String strategy, Map optParams}) {
+  Future<Result> runpagespeed(String url, {String locale, String rule, bool screenshot, String strategy, Map optParams}) {
     var completer = new Completer();
     var url = "runPagespeed";
     var urlParams = new Map();
@@ -30,6 +33,7 @@ class PagespeedapiResource extends Resource {
     var paramErrors = new List();
     if (locale != null) queryParams["locale"] = locale;
     if (rule != null) queryParams["rule"] = rule;
+    if (screenshot != null) queryParams["screenshot"] = screenshot;
     if (strategy != null && !["desktop", "mobile"].contains(strategy)) {
       paramErrors.add("Allowed values for strategy: desktop, mobile");
     }

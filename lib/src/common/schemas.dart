@@ -23,6 +23,9 @@ class Result {
   /** The Page Speed Score (0-100), which indicates how much faster a page could be. A high score indicates little room for improvement, while a lower score indicates more room for improvement. */
   int score;
 
+  /** Base64 encoded screenshot of the page that was analyzed. */
+  ResultScreenshot screenshot;
+
   /** Title of the page, as displayed in the browser's title bar. */
   String title;
 
@@ -54,6 +57,9 @@ class Result {
     }
     if (json.containsKey("score")) {
       score = json["score"];
+    }
+    if (json.containsKey("screenshot")) {
+      screenshot = new ResultScreenshot.fromJson(json["screenshot"]);
     }
     if (json.containsKey("title")) {
       title = json["title"];
@@ -91,6 +97,9 @@ class Result {
     if (score != null) {
       output["score"] = score;
     }
+    if (screenshot != null) {
+      output["screenshot"] = screenshot.toJson();
+    }
     if (title != null) {
       output["title"] = title;
     }
@@ -102,6 +111,62 @@ class Result {
   }
 
   /** Return String representation of Result */
+  String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** Base64 encoded screenshot of the page that was analyzed. */
+class ResultScreenshot {
+
+  /** Image data base64 encoded. */
+  String data;
+
+  /** Height of screenshot in pixels. */
+  int height;
+
+  /** Mime type of image data. E.g. "image/jpeg". */
+  String mime_type;
+
+  /** Width of screenshot in pixels. */
+  int width;
+
+  /** Create new ResultScreenshot from JSON data */
+  ResultScreenshot.fromJson(Map json) {
+    if (json.containsKey("data")) {
+      data = json["data"];
+    }
+    if (json.containsKey("height")) {
+      height = json["height"];
+    }
+    if (json.containsKey("mime_type")) {
+      mime_type = json["mime_type"];
+    }
+    if (json.containsKey("width")) {
+      width = json["width"];
+    }
+  }
+
+  /** Create JSON Object for ResultScreenshot */
+  Map toJson() {
+    var output = new Map();
+
+    if (data != null) {
+      output["data"] = data;
+    }
+    if (height != null) {
+      output["height"] = height;
+    }
+    if (mime_type != null) {
+      output["mime_type"] = mime_type;
+    }
+    if (width != null) {
+      output["width"] = width;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of ResultScreenshot */
   String toString() => JSON.stringify(this.toJson());
 
 }
