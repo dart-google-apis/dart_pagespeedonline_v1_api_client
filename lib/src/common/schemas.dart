@@ -6,34 +6,34 @@ class Result {
   ResultFormattedResults formattedResults;
 
   /** Canonicalized and final URL for the document, after following page redirects (if any). */
-  String id;
+  core.String id;
 
   /** List of rules that were specified in the request, but which the server did not know how to instantiate. */
-  List<String> invalidRules;
+  core.List<core.String> invalidRules;
 
   /** Kind of result. */
-  String kind;
+  core.String kind;
 
   /** Summary statistics for the page, such as number of JavaScript bytes, number of HTML bytes, etc. */
   ResultPageStats pageStats;
 
   /** Response code for the document. 200 indicates a normal page load. 4xx/5xx indicates an error. */
-  int responseCode;
+  core.int responseCode;
 
   /** The Page Speed Score (0-100), which indicates how much faster a page could be. A high score indicates little room for improvement, while a lower score indicates more room for improvement. */
-  int score;
+  core.int score;
 
   /** Base64 encoded screenshot of the page that was analyzed. */
   ResultScreenshot screenshot;
 
   /** Title of the page, as displayed in the browser's title bar. */
-  String title;
+  core.String title;
 
   /** The version of the Page Speed SDK used to generate these results. */
   ResultVersion version;
 
   /** Create new Result from JSON data */
-  Result.fromJson(Map json) {
+  Result.fromJson(core.Map json) {
     if (json.containsKey("formattedResults")) {
       formattedResults = new ResultFormattedResults.fromJson(json["formattedResults"]);
     }
@@ -70,8 +70,8 @@ class Result {
   }
 
   /** Create JSON Object for Result */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (formattedResults != null) {
       output["formattedResults"] = formattedResults.toJson();
@@ -80,7 +80,7 @@ class Result {
       output["id"] = id;
     }
     if (invalidRules != null) {
-      output["invalidRules"] = new List();
+      output["invalidRules"] = new core.List();
       invalidRules.forEach((item) {
         output["invalidRules"].add(item);
       });
@@ -111,7 +111,7 @@ class Result {
   }
 
   /** Return String representation of Result */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -119,19 +119,19 @@ class Result {
 class ResultScreenshot {
 
   /** Image data base64 encoded. */
-  String data;
+  core.String data;
 
   /** Height of screenshot in pixels. */
-  int height;
+  core.int height;
 
   /** Mime type of image data. E.g. "image/jpeg". */
-  String mime_type;
+  core.String mime_type;
 
   /** Width of screenshot in pixels. */
-  int width;
+  core.int width;
 
   /** Create new ResultScreenshot from JSON data */
-  ResultScreenshot.fromJson(Map json) {
+  ResultScreenshot.fromJson(core.Map json) {
     if (json.containsKey("data")) {
       data = json["data"];
     }
@@ -147,8 +147,8 @@ class ResultScreenshot {
   }
 
   /** Create JSON Object for ResultScreenshot */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (data != null) {
       output["data"] = data;
@@ -167,7 +167,7 @@ class ResultScreenshot {
   }
 
   /** Return String representation of ResultScreenshot */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -175,13 +175,13 @@ class ResultScreenshot {
 class ResultVersion {
 
   /** The major version number of the Page Speed SDK used to generate these results. */
-  int major;
+  core.int major;
 
   /** The minor version number of the Page Speed SDK used to generate these results. */
-  int minor;
+  core.int minor;
 
   /** Create new ResultVersion from JSON data */
-  ResultVersion.fromJson(Map json) {
+  ResultVersion.fromJson(core.Map json) {
     if (json.containsKey("major")) {
       major = json["major"];
     }
@@ -191,8 +191,8 @@ class ResultVersion {
   }
 
   /** Create JSON Object for ResultVersion */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (major != null) {
       output["major"] = major;
@@ -205,7 +205,7 @@ class ResultVersion {
   }
 
   /** Return String representation of ResultVersion */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -213,13 +213,13 @@ class ResultVersion {
 class ResultFormattedResults {
 
   /** The locale of the formattedResults, e.g. "en_US". */
-  String locale;
+  core.String locale;
 
   /** Dictionary of formatted rule results, with one entry for each Page Speed rule instantiated and run by the server. */
   ResultFormattedResultsRuleResults ruleResults;
 
   /** Create new ResultFormattedResults from JSON data */
-  ResultFormattedResults.fromJson(Map json) {
+  ResultFormattedResults.fromJson(core.Map json) {
     if (json.containsKey("locale")) {
       locale = json["locale"];
     }
@@ -229,8 +229,8 @@ class ResultFormattedResults {
   }
 
   /** Create JSON Object for ResultFormattedResults */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (locale != null) {
       output["locale"] = locale;
@@ -243,7 +243,7 @@ class ResultFormattedResults {
   }
 
   /** Return String representation of ResultFormattedResults */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -251,19 +251,19 @@ class ResultFormattedResults {
 class ResultFormattedResultsRuleResults {
 
   /** Create new ResultFormattedResultsRuleResults from JSON data */
-  ResultFormattedResultsRuleResults.fromJson(Map json) {
+  ResultFormattedResultsRuleResults.fromJson(core.Map json) {
   }
 
   /** Create JSON Object for ResultFormattedResultsRuleResults */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
 
     return output;
   }
 
   /** Return String representation of ResultFormattedResultsRuleResults */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -271,46 +271,46 @@ class ResultFormattedResultsRuleResults {
 class ResultPageStats {
 
   /** Number of uncompressed response bytes for CSS resources on the page. */
-  String cssResponseBytes;
+  core.String cssResponseBytes;
 
   /** Number of response bytes for flash resources on the page. */
-  String flashResponseBytes;
+  core.String flashResponseBytes;
 
   /** Number of uncompressed response bytes for the main HTML document and all iframes on the page. */
-  String htmlResponseBytes;
+  core.String htmlResponseBytes;
 
   /** Number of response bytes for image resources on the page. */
-  String imageResponseBytes;
+  core.String imageResponseBytes;
 
   /** Number of uncompressed response bytes for JS resources on the page. */
-  String javascriptResponseBytes;
+  core.String javascriptResponseBytes;
 
   /** Number of CSS resources referenced by the page. */
-  int numberCssResources;
+  core.int numberCssResources;
 
   /** Number of unique hosts referenced by the page. */
-  int numberHosts;
+  core.int numberHosts;
 
   /** Number of JavaScript resources referenced by the page. */
-  int numberJsResources;
+  core.int numberJsResources;
 
   /** Number of HTTP resources loaded by the page. */
-  int numberResources;
+  core.int numberResources;
 
   /** Number of static (i.e. cacheable) resources on the page. */
-  int numberStaticResources;
+  core.int numberStaticResources;
 
   /** Number of response bytes for other resources on the page. */
-  String otherResponseBytes;
+  core.String otherResponseBytes;
 
   /** Number of uncompressed response bytes for text resources not covered by other statistics (i.e non-HTML, non-script, non-CSS resources) on the page. */
-  String textResponseBytes;
+  core.String textResponseBytes;
 
   /** Total size of all request bytes sent by the page. */
-  String totalRequestBytes;
+  core.String totalRequestBytes;
 
   /** Create new ResultPageStats from JSON data */
-  ResultPageStats.fromJson(Map json) {
+  ResultPageStats.fromJson(core.Map json) {
     if (json.containsKey("cssResponseBytes")) {
       cssResponseBytes = json["cssResponseBytes"];
     }
@@ -353,8 +353,8 @@ class ResultPageStats {
   }
 
   /** Create JSON Object for ResultPageStats */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (cssResponseBytes != null) {
       output["cssResponseBytes"] = cssResponseBytes;
@@ -400,7 +400,7 @@ class ResultPageStats {
   }
 
   /** Return String representation of ResultPageStats */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 

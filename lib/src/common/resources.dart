@@ -24,13 +24,13 @@ class PagespeedapiResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Result> runpagespeed(String url, {String locale, String rule, bool screenshot, String strategy, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Result> runpagespeed(core.String url, {core.String locale, core.String rule, core.bool screenshot, core.String strategy, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "runPagespeed";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (locale != null) queryParams["locale"] = locale;
     if (rule != null) queryParams["rule"] = rule;
     if (screenshot != null) queryParams["screenshot"] = screenshot;
