@@ -4,8 +4,8 @@ part of pagespeedonline_v1_api_browser;
 /** Lets you analyze the performance of a web page and get tailored suggestions to make that page faster. */
 class Pagespeedonline extends BrowserClient {
 
-  PagespeedapiResource _pagespeedapi;
-  PagespeedapiResource get pagespeedapi => _pagespeedapi;
+  PagespeedapiResource_ _pagespeedapi;
+  PagespeedapiResource_ get pagespeedapi => _pagespeedapi;
 
   /**
    * Data format for the response.
@@ -59,6 +59,6 @@ class Pagespeedonline extends BrowserClient {
   Pagespeedonline([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/pagespeedonline/v1/";
     rootUrl = "https://www.googleapis.com:443/";
-    _pagespeedapi = new PagespeedapiResource(this);
+    _pagespeedapi = new PagespeedapiResource_(this);
   }
 }

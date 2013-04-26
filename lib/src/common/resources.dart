@@ -1,8 +1,8 @@
 part of pagespeedonline_v1_api_client;
 
-class PagespeedapiResource extends Resource {
+class PagespeedapiResource_ extends Resource {
 
-  PagespeedapiResource(Client client) : super(client) {
+  PagespeedapiResource_(Client client) : super(client) {
   }
 
   /**
@@ -49,7 +49,7 @@ class PagespeedapiResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
