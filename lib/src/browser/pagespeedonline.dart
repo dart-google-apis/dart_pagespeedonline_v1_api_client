@@ -58,7 +58,7 @@ class Pagespeedonline extends BrowserClient {
 
   Pagespeedonline([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/pagespeedonline/v1/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _pagespeedapi = new PagespeedapiResource_(this);
   }
 }

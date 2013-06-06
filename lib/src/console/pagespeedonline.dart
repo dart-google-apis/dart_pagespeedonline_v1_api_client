@@ -58,7 +58,7 @@ class Pagespeedonline extends ConsoleClient {
 
   Pagespeedonline([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/pagespeedonline/v1/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _pagespeedapi = new PagespeedapiResource_(this);
   }
 }

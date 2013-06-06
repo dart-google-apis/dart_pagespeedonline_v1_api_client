@@ -271,19 +271,19 @@ class ResultFormattedResultsRuleResults {
 class ResultPageStats {
 
   /** Number of uncompressed response bytes for CSS resources on the page. */
-  core.String cssResponseBytes;
+  core.int cssResponseBytes;
 
   /** Number of response bytes for flash resources on the page. */
-  core.String flashResponseBytes;
+  core.int flashResponseBytes;
 
   /** Number of uncompressed response bytes for the main HTML document and all iframes on the page. */
-  core.String htmlResponseBytes;
+  core.int htmlResponseBytes;
 
   /** Number of response bytes for image resources on the page. */
-  core.String imageResponseBytes;
+  core.int imageResponseBytes;
 
   /** Number of uncompressed response bytes for JS resources on the page. */
-  core.String javascriptResponseBytes;
+  core.int javascriptResponseBytes;
 
   /** Number of CSS resources referenced by the page. */
   core.int numberCssResources;
@@ -301,13 +301,13 @@ class ResultPageStats {
   core.int numberStaticResources;
 
   /** Number of response bytes for other resources on the page. */
-  core.String otherResponseBytes;
+  core.int otherResponseBytes;
 
   /** Number of uncompressed response bytes for text resources not covered by other statistics (i.e non-HTML, non-script, non-CSS resources) on the page. */
-  core.String textResponseBytes;
+  core.int textResponseBytes;
 
   /** Total size of all request bytes sent by the page. */
-  core.String totalRequestBytes;
+  core.int totalRequestBytes;
 
   /** Create new ResultPageStats from JSON data */
   ResultPageStats.fromJson(core.Map json) {
