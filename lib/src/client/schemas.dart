@@ -312,19 +312,39 @@ class ResultPageStats {
   /** Create new ResultPageStats from JSON data */
   ResultPageStats.fromJson(core.Map json) {
     if (json.containsKey("cssResponseBytes")) {
-      cssResponseBytes = json["cssResponseBytes"];
+      if(json["cssResponseBytes"] is core.String){
+        cssResponseBytes = core.int.parse(json["cssResponseBytes"]);
+      }else{
+        cssResponseBytes = json["cssResponseBytes"];
+      }
     }
     if (json.containsKey("flashResponseBytes")) {
-      flashResponseBytes = json["flashResponseBytes"];
+      if(json["flashResponseBytes"] is core.String){
+        flashResponseBytes = core.int.parse(json["flashResponseBytes"]);
+      }else{
+        flashResponseBytes = json["flashResponseBytes"];
+      }
     }
     if (json.containsKey("htmlResponseBytes")) {
-      htmlResponseBytes = json["htmlResponseBytes"];
+      if(json["htmlResponseBytes"] is core.String){
+        htmlResponseBytes = core.int.parse(json["htmlResponseBytes"]);
+      }else{
+        htmlResponseBytes = json["htmlResponseBytes"];
+      }
     }
     if (json.containsKey("imageResponseBytes")) {
-      imageResponseBytes = json["imageResponseBytes"];
+      if(json["imageResponseBytes"] is core.String){
+        imageResponseBytes = core.int.parse(json["imageResponseBytes"]);
+      }else{
+        imageResponseBytes = json["imageResponseBytes"];
+      }
     }
     if (json.containsKey("javascriptResponseBytes")) {
-      javascriptResponseBytes = json["javascriptResponseBytes"];
+      if(json["javascriptResponseBytes"] is core.String){
+        javascriptResponseBytes = core.int.parse(json["javascriptResponseBytes"]);
+      }else{
+        javascriptResponseBytes = json["javascriptResponseBytes"];
+      }
     }
     if (json.containsKey("numberCssResources")) {
       numberCssResources = json["numberCssResources"];
@@ -342,13 +362,25 @@ class ResultPageStats {
       numberStaticResources = json["numberStaticResources"];
     }
     if (json.containsKey("otherResponseBytes")) {
-      otherResponseBytes = json["otherResponseBytes"];
+      if(json["otherResponseBytes"] is core.String){
+        otherResponseBytes = core.int.parse(json["otherResponseBytes"]);
+      }else{
+        otherResponseBytes = json["otherResponseBytes"];
+      }
     }
     if (json.containsKey("textResponseBytes")) {
-      textResponseBytes = json["textResponseBytes"];
+      if(json["textResponseBytes"] is core.String){
+        textResponseBytes = core.int.parse(json["textResponseBytes"]);
+      }else{
+        textResponseBytes = json["textResponseBytes"];
+      }
     }
     if (json.containsKey("totalRequestBytes")) {
-      totalRequestBytes = json["totalRequestBytes"];
+      if(json["totalRequestBytes"] is core.String){
+        totalRequestBytes = core.int.parse(json["totalRequestBytes"]);
+      }else{
+        totalRequestBytes = json["totalRequestBytes"];
+      }
     }
   }
 
