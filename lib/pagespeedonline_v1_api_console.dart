@@ -1,14 +1,15 @@
-library pagespeedonline_v1_api_console;
+library pagespeedonline_v1_api.console;
 
-import "pagespeedonline_v1_api_client.dart";
-export "pagespeedonline_v1_api_client.dart";
-
-import "dart:core" as core;
-import "dart:io" as io;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:http/http.dart" as http;
 import "package:google_oauth2_client/google_oauth2_console.dart" as oauth2;
 
-part "src/console/console_client.dart";
-part "src/console/pagespeedonline.dart";
+import 'package:google_pagespeedonline_v1_api/src/cloud_api_console.dart';
+
+import "package:google_pagespeedonline_v1_api/pagespeedonline_v1_api_client.dart";
+
+/** Lets you analyze the performance of a web page and get tailored suggestions to make that page faster. */
+class Pagespeedonline extends Client with ConsoleClient {
+
+  final oauth2.OAuth2Console auth;
+
+  Pagespeedonline([oauth2.OAuth2Console this.auth]);
+}
