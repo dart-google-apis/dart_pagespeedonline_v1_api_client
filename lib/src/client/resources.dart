@@ -23,6 +23,9 @@ class PagespeedapiResource_ {
    * [screenshot] - Indicates if binary data containing a screenshot should be included
    *   Default: false
    *
+   * [snapshots] - Indicates if binary data containing snapshot images should be included
+   *   Default: false
+   *
    * [strategy] - The analysis strategy to use
    *   Allowed values:
    *     desktop - Fetch and analyze the URL for desktop browsers
@@ -30,7 +33,7 @@ class PagespeedapiResource_ {
    *
    * [optParams] - Additional query parameters
    */
-  async.Future<Result> runpagespeed(core.String url, {core.bool filter_third_party_resources, core.String locale, core.List<core.String> rule, core.bool screenshot, core.String strategy, core.Map optParams}) {
+  async.Future<Result> runpagespeed(core.String url, {core.bool filter_third_party_resources, core.String locale, core.List<core.String> rule, core.bool screenshot, core.bool snapshots, core.String strategy, core.Map optParams}) {
     var url = "runPagespeed";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -40,6 +43,7 @@ class PagespeedapiResource_ {
     if (locale != null) queryParams["locale"] = locale;
     if (rule != null) queryParams["rule"] = rule;
     if (screenshot != null) queryParams["screenshot"] = screenshot;
+    if (snapshots != null) queryParams["snapshots"] = snapshots;
     if (strategy != null && !["desktop", "mobile"].contains(strategy)) {
       paramErrors.add("Allowed values for strategy: desktop, mobile");
     }

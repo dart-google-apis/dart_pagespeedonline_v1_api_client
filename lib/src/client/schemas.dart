@@ -14,9 +14,6 @@ class Result {
   /** Kind of result. */
   core.String kind;
 
-  /** Notice to discourage users from reusing API keys. */
-  core.String notice;
-
   /** Summary statistics for the page, such as number of JavaScript bytes, number of HTML bytes, etc. */
   ResultPageStats pageStats;
 
@@ -51,9 +48,6 @@ class Result {
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
-    }
-    if (json.containsKey("notice")) {
-      notice = json["notice"];
     }
     if (json.containsKey("pageStats")) {
       pageStats = new ResultPageStats.fromJson(json["pageStats"]);
@@ -94,9 +88,6 @@ class Result {
     if (kind != null) {
       output["kind"] = kind;
     }
-    if (notice != null) {
-      output["notice"] = notice;
-    }
     if (pageStats != null) {
       output["pageStats"] = pageStats.toJson();
     }
@@ -123,7 +114,7 @@ class Result {
   }
 
   /** Return String representation of Result */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -161,7 +152,7 @@ class ResultFormattedResults {
   }
 
   /** Return String representation of ResultFormattedResults */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -217,7 +208,7 @@ class ResultFormattedResultsRuleResults {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResults */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -254,7 +245,7 @@ class ResultFormattedResultsRuleResultsUrlBlocks {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocks */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -292,7 +283,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksHeader {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksHeader */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -329,7 +320,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksHeaderArgs {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksHeaderArgs */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -366,7 +357,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksUrls {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksUrls */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -403,7 +394,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksUrlsDetails {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksUrlsDetails */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -440,7 +431,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksUrlsDetailsArgs {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksUrlsDetailsArgs */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -478,7 +469,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksUrlsResult {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksUrlsResult */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -515,7 +506,7 @@ class ResultFormattedResultsRuleResultsUrlBlocksUrlsResultArgs {
   }
 
   /** Return String representation of ResultFormattedResultsRuleResultsUrlBlocksUrlsResultArgs */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -652,7 +643,7 @@ class ResultPageStats {
   }
 
   /** Return String representation of ResultPageStats */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -696,7 +687,7 @@ class ResultRequest {
   }
 
   /** Return String representation of ResultRequest */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -752,7 +743,7 @@ class ResultScreenshot {
   }
 
   /** Return String representation of ResultScreenshot */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -790,7 +781,7 @@ class ResultVersion {
   }
 
   /** Return String representation of ResultVersion */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
