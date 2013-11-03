@@ -165,9 +165,6 @@ class ResultFormattedResultsRuleResults {
   /** The impact (unbounded floating point value) that implementing the suggestions for this rule would have on making the page faster. Impact is comparable between rules to determine which rule's suggestions would have a higher or lower impact on making a page faster. For instance, if enabling compression would save 1MB, while optimizing images would save 500kB, the enable compression rule would have 2x the impact of the image optimization rule, all other things being equal. */
   core.num ruleImpact;
 
-  /** The score (0-100) for this rule. The rule score indicates how well a page implements the recommendations for the given rule. For instance, if none of the compressible resources on a page are compressed, the rule score would be 0, while if all of the compressible resources on a page are compressed, the rule score would be 100. */
-  core.int ruleScore;
-
   /** List of blocks of URLs. Each block may contain a heading and a list of URLs. Each URL may optionally include additional details. */
   core.List<ResultFormattedResultsRuleResultsUrlBlocks> urlBlocks;
 
@@ -178,9 +175,6 @@ class ResultFormattedResultsRuleResults {
     }
     if (json.containsKey("ruleImpact")) {
       ruleImpact = json["ruleImpact"];
-    }
-    if (json.containsKey("ruleScore")) {
-      ruleScore = json["ruleScore"];
     }
     if (json.containsKey("urlBlocks")) {
       urlBlocks = json["urlBlocks"].map((urlBlocksItem) => new ResultFormattedResultsRuleResultsUrlBlocks.fromJson(urlBlocksItem)).toList();
@@ -196,9 +190,6 @@ class ResultFormattedResultsRuleResults {
     }
     if (ruleImpact != null) {
       output["ruleImpact"] = ruleImpact;
-    }
-    if (ruleScore != null) {
-      output["ruleScore"] = ruleScore;
     }
     if (urlBlocks != null) {
       output["urlBlocks"] = urlBlocks.map((urlBlocksItem) => urlBlocksItem.toJson()).toList();
