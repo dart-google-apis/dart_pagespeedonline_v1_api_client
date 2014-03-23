@@ -17,9 +17,6 @@ class Result {
   /** Summary statistics for the page, such as number of JavaScript bytes, number of HTML bytes, etc. */
   ResultPageStats pageStats;
 
-  /** Echo of certain request parameters. */
-  ResultRequest request;
-
   /** Response code for the document. 200 indicates a normal page load. 4xx/5xx indicates an error. */
   core.int responseCode;
 
@@ -51,9 +48,6 @@ class Result {
     }
     if (json.containsKey("pageStats")) {
       pageStats = new ResultPageStats.fromJson(json["pageStats"]);
-    }
-    if (json.containsKey("request")) {
-      request = new ResultRequest.fromJson(json["request"]);
     }
     if (json.containsKey("responseCode")) {
       responseCode = json["responseCode"];
@@ -90,9 +84,6 @@ class Result {
     }
     if (pageStats != null) {
       output["pageStats"] = pageStats.toJson();
-    }
-    if (request != null) {
-      output["request"] = request.toJson();
     }
     if (responseCode != null) {
       output["responseCode"] = responseCode;
@@ -634,50 +625,6 @@ class ResultPageStats {
   }
 
   /** Return String representation of ResultPageStats */
-  core.String toString() => JSON.encode(this.toJson());
-
-}
-
-/** Echo of certain request parameters. */
-class ResultRequest {
-
-  core.String filter_third_party_resources;
-
-  core.String strategy;
-
-  core.String url;
-
-  /** Create new ResultRequest from JSON data */
-  ResultRequest.fromJson(core.Map json) {
-    if (json.containsKey("filter_third_party_resources")) {
-      filter_third_party_resources = json["filter_third_party_resources"];
-    }
-    if (json.containsKey("strategy")) {
-      strategy = json["strategy"];
-    }
-    if (json.containsKey("url")) {
-      url = json["url"];
-    }
-  }
-
-  /** Create JSON Object for ResultRequest */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (filter_third_party_resources != null) {
-      output["filter_third_party_resources"] = filter_third_party_resources;
-    }
-    if (strategy != null) {
-      output["strategy"] = strategy;
-    }
-    if (url != null) {
-      output["url"] = url;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of ResultRequest */
   core.String toString() => JSON.encode(this.toJson());
 
 }
